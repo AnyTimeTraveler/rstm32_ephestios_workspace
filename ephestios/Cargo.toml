@@ -1,0 +1,24 @@
+[package]
+name = "ephestios"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.embassy-stm32]
+version = "0.1.0"
+path = "../embassy/embassy-stm32"
+features = ["defmt", "nightly", "exti", "stm32l010f4", "time-driver-tim2", "memory-x"]
+
+[dependencies.embassy-time]
+version = "0.1.0"
+path = "../embassy/embassy-time"
+features = ["defmt", "nightly"]
+
+[dependencies.embassy-executor]
+version = "0.2.0"
+path = "../embassy/embassy-executor"
+features = ["defmt", "nightly", "integrated-timers"]
+
+[dependencies.defmt]
+version = "0.3"
