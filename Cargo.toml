@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "embassy/embassy-executor",
+    "embassy/embassy-stm32",
+    "embassy/embassy-time",
+    "ephestios"
+]
