@@ -5,20 +5,51 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[dependencies]
+embedded-storage = "0.3"
+embedded-io = "0.4"
+
+embedded-hal = "0.2"
+static_cell = "1.0"
+
 [dependencies.embassy-stm32]
-version = "0.1.0"
+version = "0.1"
 path = "../embassy/embassy-stm32"
-features = ["defmt", "nightly", "exti", "stm32l010f4", "time-driver-tim2", "memory-x"]
+features = ["defmt", "nightly", "exti", "stm32l010f4", "time-driver-any", "unstable-traits", "memory-x"]
 
 [dependencies.embassy-time]
-version = "0.1.0"
+version = "0.1"
 path = "../embassy/embassy-time"
-features = ["defmt", "nightly"]
+features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"]
 
 [dependencies.embassy-executor]
-version = "0.2.0"
+version = "0.2"
 path = "../embassy/embassy-executor"
-features = ["defmt", "nightly", "integrated-timers"]
+features = ["defmt", "nightly", "arch-cortex-m", "executor-thread", "integrated-timers"]
+
+[dependencies.panic-probe]
+version = "0.3"
+features = ["print-defmt"]
 
 [dependencies.defmt]
 version = "0.3"
+
+[dependencies.defmt-rtt]
+version = "0.4"
+
+[dependencies.cortex-m]
+version = "0.7"
+features = ["critical-section-single-core"]
+
+[dependencies.cortex-m-rt]
+version= "0.7"
+#features = []
+
+#[dependencies.heapless]
+#version = "0.7"
+#default-features = false
+
+[dependencies.futures]
+version = "0.3"
+default-features = false
+features = ["async-await"]

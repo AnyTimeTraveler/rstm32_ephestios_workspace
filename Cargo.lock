@@ -102,6 +102,7 @@ checksum = "8ec610d8f49840a5b376c69663b6369e71f4b34484b9b2eb29fb918d92516cb9"
 dependencies = [
  "bare-metal",
  "bitfield",
+ "critical-section",
  "embedded-hal 0.2.7",
  "volatile-register",
 ]
@@ -210,6 +211,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "269924c02afd7f94bc4cecbfa5c379f6ffcf9766b3408fe63d22c728654eccd0"
 dependencies = [
  "thiserror",
+]
+
+[[package]]
+name = "defmt-rtt"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "609923761264dd99ed9c7d209718cda4631c5fe84668e0f0960124cbb844c49f"
+dependencies = [
+ "critical-section",
+ "defmt",
 ]
 
 [[package]]
@@ -453,10 +464,19 @@ dependencies = [
 name = "ephestios"
 version = "0.1.0"
 dependencies = [
+ "cortex-m",
+ "cortex-m-rt",
  "defmt",
+ "defmt-rtt",
  "embassy-executor",
  "embassy-stm32",
  "embassy-time",
+ "embedded-hal 0.2.7",
+ "embedded-io",
+ "embedded-storage",
+ "futures",
+ "panic-probe",
+ "static_cell",
 ]
 
 [[package]]
@@ -725,6 +745,16 @@ name = "once_cell"
 version = "1.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b7e5500299e16ebb147ae15a00a942af264cf3688f47923b8fc2cd5858f23ad3"
+
+[[package]]
+name = "panic-probe"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aa6fa5645ef5a760cd340eaa92af9c1ce131c8c09e7f8926d8a24b59d26652b9"
+dependencies = [
+ "cortex-m",
+ "defmt",
+]
 
 [[package]]
 name = "parking_lot"
